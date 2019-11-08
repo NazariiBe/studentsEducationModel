@@ -1,27 +1,19 @@
 package studetnsEducationModel.activity.schedule;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.Set;
+import java.util.function.Predicate;
 
 public class DayOfWeekSchedule implements Schedule {
-    private boolean[] days;
+    private Set<DayOfWeek> days;
 
-    public DayOfWeekSchedule(boolean[] days) {
-        this.days = days;
-    }
-
-    public DayOfWeekSchedule(boolean allWeek) {
-        boolean[] days = new boolean[7];
-        for (int i = 0; i < 7; i++) days[i] = allWeek;
+    public DayOfWeekSchedule(Set<DayOfWeek> days) {
         this.days = days;
     }
 
     @Override
     public boolean isCovers(LocalDate day) {
-        for (int i = 0; i < days.length; i++) {
-            if (days[i] & day.getDayOfWeek().getValue() == i) {
-                return true;
-            }
-        }
-        return false;
+        return days.contains(day.getDayOfWeek());
     }
 }

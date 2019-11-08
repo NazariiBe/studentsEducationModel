@@ -6,13 +6,17 @@ import studetnsEducationModel.activity.knowledgeSource.Meetup;
 import studetnsEducationModel.activity.knowledgeSource.Student;
 import studetnsEducationModel.activity.schedule.DayOfWeekSchedule;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        boolean[] workdays = {true, true, true, true, true, false, false};
+        Set<DayOfWeek> workdays = new HashSet<>();
+        workdays.add(DayOfWeek.MONDAY);
         Activity activity = new ActivityBuilder()
                 .source(new Meetup())
                 .schedule(new DayOfWeekSchedule(workdays))

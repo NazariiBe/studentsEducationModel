@@ -1,16 +1,18 @@
 package studetnsEducationModel.activity.schedule;
 
 import java.time.LocalDate;
+import java.time.Month;
+import java.util.Set;
 
 public class MonthSchedule implements Schedule {
-    private int month;
+    private Set<Month> monthSet;
 
-    public MonthSchedule(int month) {
-        this.month = month;
+    public MonthSchedule(Set<Month> monthSet) {
+        this.monthSet = monthSet;
     }
 
     @Override
     public boolean isCovers(LocalDate day) {
-        return day.getMonthValue() == month;
+        return monthSet.contains(day.getMonth());
     }
 }
