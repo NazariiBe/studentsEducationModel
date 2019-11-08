@@ -1,6 +1,6 @@
 package studetnsEducationModel;
 
-public enum KnowladgeCategory {
+public enum KnowledgeCategory {
     JAVA_DATA_STRUCTURES,
     JAVA_GENERICS,
     JAVA_TESTING,
