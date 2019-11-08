@@ -7,8 +7,8 @@ public class PeriodSchedule implements Schedule {
     private LocalDate end;
 
     public PeriodSchedule(LocalDate start, LocalDate end) {
-        this.start = start.minusDays(1);
-        this.end = end.plusDays(1);
+        this.start = start;
+        this.end = end;
     }
 
     @Override

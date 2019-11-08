@@ -63,9 +63,9 @@ public class studentsEducationModel {
         summer.add(Month.JULY);
         summer.add(Month.AUGUST);
         Schedule month = CompositeSchedule.negate(new MonthSchedule(summer));
-        Schedule period = new PeriodSchedule(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 1, 6));
+        Schedule period = new PeriodSchedule(LocalDate.of(2019, 1, 0), LocalDate.of(2019, 1, 7));
         Schedule composite = CompositeSchedule.and(days, month, period);
-        int count = countDays(composite, LocalDate.of(2019, 1, 1), LocalDate.of(2019, 1, 6));
+        int count = countDays(composite, LocalDate.of(2019, 1, 0), LocalDate.of(2019, 1, 7));
         assertThat(count, is(4));
     }
 
