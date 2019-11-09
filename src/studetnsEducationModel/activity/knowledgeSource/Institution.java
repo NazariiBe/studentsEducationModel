@@ -10,6 +10,18 @@ import java.util.Set;
 
 public class Institution implements KnowledgeSource {
     private Set<Student> students = new HashSet<>();
+    private int knoweledge;
+    private int practice;
+
+    public Institution() {
+        this.knoweledge = 200;
+        this.practice = 50;
+    }
+
+    public Institution(int knoweledge, int practice) {
+        this.knoweledge = knoweledge;
+        this.practice = practice;
+    }
 
     public void register(Student student) {
         students.add(student);
@@ -18,11 +30,8 @@ public class Institution implements KnowledgeSource {
     @Override
     public void teach(Student student) {
         if (students.contains(student)) {
-            KnowledgeCategory[] categories = KnowledgeCategory.values();
-            KnowledgeCategory category = categories[new Random().nextInt(categories.length)];
-
-            student.learn(new Knowledge(category, 200));
-            student.practice(new Practice(category, 50));
+            student.learn(new Knowledge(knoweledge));
+            student.practice(new Practice(practice));
         }
     }
 }

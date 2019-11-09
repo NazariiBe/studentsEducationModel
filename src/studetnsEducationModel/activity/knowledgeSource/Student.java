@@ -1,17 +1,20 @@
 package studetnsEducationModel.activity.knowledgeSource;
 
+import jdk.jfr.Category;
 import studetnsEducationModel.activity.Knowledge;
 import studetnsEducationModel.activity.Practice;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Student implements KnowledgeSource {
     private float learningRatio;
     private boolean laptop;
 
-    private List<Knowledge> knowledges = new ArrayList<>();
-    private List<Practice> practices = new ArrayList<>();
+    private int knowledge = 0;
+    private int practice = 0;
 
     public Student(float learningRatio, boolean laptop) {
         this.learningRatio = learningRatio;
@@ -19,29 +22,36 @@ public class Student implements KnowledgeSource {
     }
 
     public void learn(Knowledge knowledge) {
-        knowledges.add(knowledge);
+        this.knowledge += knowledge.getPoints();
     }
 
     public void practice(Practice practice) {
-        practices.add(practice);
+        this.practice += practice.getPoints();
     }
 
-    public List<Knowledge> getKnowledges() {
-        return knowledges;
+    public int getKnowledge() {
+        return knowledge;
     }
 
-    public List<Practice> getPractices() {
-        return practices;
+    public int getPractice() {
+        return practice;
     }
 
     public boolean hasLaptop() {
         return laptop;
     }
 
+    public void forgetAll() {
+        knowledge = 0;
+        practice = 0;
+    }
+
+    public float getLearningRatio() {
+        return learningRatio;
+    }
+
     @Override
     public void teach(Student student) {
-        for (Knowledge knowledge: knowledges) {
-            student.learn(knowledge);
-        }
+        student.learn(new Knowledge(knowledge / 2));
     }
 }

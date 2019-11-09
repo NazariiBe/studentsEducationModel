@@ -9,13 +9,8 @@ import java.util.Random;
 public class SelfStudy implements KnowledgeSource {
     @Override
     public void teach(Student student) {
-        KnowledgeCategory[] categories = KnowledgeCategory.values();
-        KnowledgeCategory category = categories[random(categories.length - 1)];
-        Knowledge knowledge = new Knowledge(category, random(100));
-        Practice practice = new Practice(category, random(24));
-
-        student.learn(knowledge);
-        student.practice(practice);
+        student.learn(new Knowledge(random(100)));
+        student.practice(new Practice(random(24)));
     }
 
     private int random(int max) {

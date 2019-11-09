@@ -9,15 +9,9 @@ import java.util.Random;
 public class Meetup implements KnowledgeSource {
     @Override
     public void teach(Student student) {
-        KnowledgeCategory[] categories = KnowledgeCategory.values();
-        KnowledgeCategory category = categories[random(categories.length - 1)];
-        Knowledge knowledge = new Knowledge(category, random(150));
-
-        student.learn(knowledge);
-
+        student.learn(new Knowledge(random(150)));
         if (student.hasLaptop()) {
-            Practice practice = new Practice(category, random(24));
-            student.practice(practice);
+            student.practice(new Practice(random(24)));
         }
     }
 

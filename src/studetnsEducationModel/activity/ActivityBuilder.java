@@ -1,6 +1,5 @@
-package studetnsEducationModel;
+package studetnsEducationModel.activity;
 
-import studetnsEducationModel.activity.Activity;
 import studetnsEducationModel.activity.knowledgeSource.KnowledgeSource;
 import studetnsEducationModel.activity.knowledgeSource.Student;
 import studetnsEducationModel.activity.schedule.Schedule;

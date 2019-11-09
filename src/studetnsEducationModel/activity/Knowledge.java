@@ -3,11 +3,13 @@ package studetnsEducationModel.activity;
 import studetnsEducationModel.KnowledgeCategory;
 
 public class Knowledge {
-    private KnowledgeCategory category;
-    private int level;
+    private int points;
 
-    public Knowledge(KnowledgeCategory category, int level) {
-        this.category = category;
-        this.level = level;
+    public Knowledge(int points) {
+        this.points = points;
+    }
+
+    public int getPoints() {
+        return points;
     }
 }
